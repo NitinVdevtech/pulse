@@ -7,4 +7,13 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   root 'home#index'
+
+  get '/members/get_doctors', to: 'members#get_doctors', format: :json
+  get '/members/get_patients', to: 'members#get_patients', format: :json
+
+
+  patch '/opportunities/:id/update_stage', to: 'opportunities#update_stage', format: :json
+
+  resources :members, format: :json
+  resources :opportunities, format: :json
 end
